@@ -1,4 +1,4 @@
-# axlcabunoc.com — portfolio
+# axlcabunoc.com portfolio
 
 Static site, no build step. `index.html` plus `img/`.
 

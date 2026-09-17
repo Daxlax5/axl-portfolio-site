@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Axl Cabunoc — Software developer & automation specialist</title>
-<meta name="description" content="Axl Cabunoc builds AI automation systems in n8n and full-stack production software. Based in Cebu City.">
-<meta property="og:title" content="Axl Cabunoc — Software developer & automation specialist">
-<meta property="og:description" content="AI automation systems in n8n, and the production software behind them.">
+<title>Axl Cabunoc | Full stack engineer and AI automation builder</title>
+<meta name="description" content="Axl Cabunoc builds full stack production systems and AI automation with n8n and Claude. Based in Cebu City, Philippines.">
+<meta property="og:title" content="Axl Cabunoc | Full stack engineer and AI automation builder">
+<meta property="og:description" content="Full stack production systems and AI automation that runs for real clients.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -20,6 +20,7 @@
     --link: #1d4ed8;
     --link-hover: #1e3a8a;
     --img-bg: #15181c;
+    --live: #15803d;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -30,6 +31,7 @@
       --line: #2a3138;
       --link: #8ab4ff;
       --link-hover: #b9d0ff;
+      --live: #6ee7a0;
     }
   }
   :root[data-theme="dark"] {
@@ -40,6 +42,7 @@
     --line: #2a3138;
     --link: #8ab4ff;
     --link-hover: #b9d0ff;
+    --live: #6ee7a0;
   }
 
   * { box-sizing: border-box; }
@@ -87,7 +90,8 @@
   .work li:first-child { padding-top: 0; }
   .work li:last-child { border-bottom: 0; }
   .work h3 { font-size: 17px; font-weight: 600; margin: 0 0 6px; letter-spacing: -0.005em; }
-  .work h3 span { font-weight: 400; color: var(--muted); }
+  .work h3 span, .flows h3 span, .role h3 span { display: block; font-weight: 400; color: var(--muted); font-size: 15px; margin-top: 2px; }
+  .work .status, .flows .status { font-style: normal; display: inline-block; margin-left: 8px; font-size: 13px; font-weight: 500; color: var(--live); border: 1px solid currentColor; border-radius: 999px; padding: 0 8px; vertical-align: 2px; }
   .work p { margin: 0; color: var(--ink); max-width: 60ch; }
   .work .tools { margin-top: 8px; color: var(--faint); font-size: 15px; }
 
@@ -103,7 +107,6 @@
     overflow: hidden;
   }
   .flows h3 { font-size: 17px; font-weight: 600; margin: 0 0 6px; letter-spacing: -0.005em; }
-  .flows h3 span { font-weight: 400; color: var(--muted); }
   .flows p { margin: 0; color: var(--ink); max-width: 60ch; }
   .flows .tools { margin-top: 8px; color: var(--faint); font-size: 15px; }
   @media (min-width: 1100px) {
@@ -115,7 +118,6 @@
   .role:last-child { border-bottom: 0; }
   .role .when { color: var(--faint); font-size: 15px; padding-top: 2px; }
   .role h3 { font-size: 17px; font-weight: 600; margin: 0 0 6px; }
-  .role h3 span { font-weight: 400; color: var(--muted); }
   .role ul { margin: 8px 0 0; padding-left: 18px; }
   .role ul li { margin-bottom: 6px; }
   .role p { margin: 0; color: var(--muted); }
@@ -136,87 +138,114 @@
     <div class="name">Axl Cabunoc</div>
     <nav aria-label="Sections">
       <a href="#work">Work</a>
-      <a href="#automation">Automation</a>
+      <a href="#workflows">Workflows</a>
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main>
-    <h1>I build AI automation systems and the software behind them.</h1>
-    <p class="lede">Software developer and automation specialist based in Cebu City. I design workflows in n8n that connect APIs, AI agents, and business systems so teams spend less time on manual work — and I write the production code around them: data tooling, SAP integrations, and full‑stack web applications.</p>
-    <p class="lede">Currently a software developer at Alliance Software, working on healthcare and enterprise systems. Long‑term, I'm focused on AI infrastructure and intelligent automation.</p>
+    <h1>I build full stack systems and the AI automation that runs on them.</h1>
+    <p class="lede">Software engineer at Alliance Software, shipping healthcare and enterprise systems across NestJS, Laravel, Angular, Java, PostgreSQL, and AWS. Alongside that, I run an independent practice building AI automation with n8n and Claude for clients in the US and New Zealand, on projects and ongoing retainers.</p>
+    <p class="lede">The two sides make each other better. Production engineering is why my automations are tested, secure, and maintainable, and automation work keeps me close to what a business actually needs from its software. Long term, I'm focused on AI infrastructure and intelligent automation.</p>
     <div class="links">
       <a href="mailto:daxlax5@gmail.com">daxlax5@gmail.com</a>
       <a href="https://www.linkedin.com/in/axlcabunoc" rel="me noopener" target="_blank">LinkedIn</a>
       <a href="https://github.com/daxlax5" rel="me noopener" target="_blank">GitHub</a>
+      <a href="Axl-Cabunoc-Resume.pdf" target="_blank">Resume</a>
     </div>
 
     <section id="work">
       <h2>Selected work</h2>
+      <p class="intro">Production systems from my role at Alliance Software, side by side with independent client builds. Client names stay private, so each engagement is described by what the work was.</p>
       <ul class="work">
         <li>
-          <h3>mWell <span>— healthcare web platform</span></h3>
-          <p>Web platform for clinics and hospitals under Metro Pacific, currently being prepared for BIR accreditation. Full‑stack development across a multi‑repository codebase, with authentication, PDF reporting, and containerized services.</p>
-          <div class="tools">Laravel, NestJS, TypeScript, React, PostgreSQL, MySQL, Docker, Keycloak, Jasper Reports</div>
+          <h3>mWell Hospital Information System <span>Alliance Software, billing and cashiering, now in UAT</span></h3>
+          <p>Finance module work for a hospital platform. Built HMO and PhilHealth statement of account generation from scratch, added seller identity details (TIN, branch code, address, VAT status) across invoices, receipts, statements, and charge slips, implemented immutable transaction logging with a PostgreSQL trigger so posted payments can't be altered, and wrote a Playwright end to end suite for the cashiering flows using the Page Object Model.</p>
+          <div class="tools">Laravel, PHP, Angular, TypeScript, PostgreSQL, Jasper Reports, Docker, Playwright</div>
         </li>
         <li>
-          <h3>SIRIUS <span>— POS / SAP middleware</span></h3>
-          <p>Middleware connecting SAP with an internal CloudPOS system. Started on code‑based unit testing, then moved into development to build the SAP‑facing APIs and a batching and pagination procedure that kept performance stable across hundreds of thousands of records.</p>
+          <h3>AI proposal pipeline <em class="status">In production</em><span>Client build, modular building company in New Zealand</span></h3>
+          <p>A Claude agent backed by Python scripts that turns a project brief into an internally reviewed commercial proposal. It fingerprints every input with SHA-256, recomputes all geometry from raw parameters, generates parametric drawings, assembles the PDF, and runs a release check that blocks stale deadlines, unconfirmed pricing, and images that don't trace back to the right client.</p>
+          <div class="tools">Claude skills, Python, parametric SVG, PDF assembly, release QA</div>
+        </li>
+        <li>
+          <h3>mWell patient platform <span>Alliance Software, insurance partner integration</span></h3>
+          <p>Inbound HMO letter of guarantee APIs for an insurance partner, built in a NestJS monorepo with Keycloak client credentials auth. An environment gated mock adapter let the team build and test every response path before the partner's credentials were provisioned, and schema or ownership gaps were flagged to the right team instead of patched quietly.</p>
+          <div class="tools">NestJS, Nx, TypeScript, MongoDB, Keycloak, Docker, pnpm, Insomnia</div>
+        </li>
+        <li>
+          <h3>AI agent security audit and migration <span>Client contract, real estate group in the US, ongoing</span></h3>
+          <p>Audited a self hosted AI agent and every tool connection it could reach, including an OAuth gateway nobody had reviewed and credential handling that needed tightening. Migrated the agent from a Windows laptop to a headless Ubuntu mini PC with private access over Tailscale, SSH, and remote desktop, rotated exposed credentials under written approval, and designed tiered permissions for every connected app.</p>
+          <div class="tools">Ubuntu, Linux, Tailscale, SSH, Composio, n8n, Supabase, security review</div>
+        </li>
+        <li>
+          <h3>SIRIUS <span>Alliance Software, POS and SAP middleware</span></h3>
+          <p>Middleware connecting SAP with an internal CloudPOS system. Started on code based unit testing, then moved into development to build the SAP facing APIs and a batching and pagination procedure that kept performance stable across hundreds of thousands of records.</p>
           <div class="tools">Java, Spring Batch, JUnit, Postman, Amazon Redshift, S3, Lambda</div>
         </li>
         <li>
-          <h3>WITS data tools <span>— three rebuilds, three languages</span></h3>
-          <p>A set of data‑processing tools for an enterprise client, delivered as full rebuilds to meet changing requirements: a Python encryption utility with a Pytest / Black / Flake8 quality pipeline, a C# dataset comparison tool, and a Java log checker for finding errors and anomalies in system logs.</p>
+          <h3>Instagram lead generation and outreach <em class="status">In production</em><span>Client build, martial arts coaching business</span></h3>
+          <p>Finds people commenting on martial arts pages who look like genuine beginners, then writes each one a personal opener that references what they actually said. Both halves of the pipeline are shown in the workflow gallery below.</p>
+          <div class="tools">n8n, Apify, JavaScript, OpenAI, Gemini, Perplexity, Google Sheets</div>
+        </li>
+        <li>
+          <h3>WITS data tools <span>Alliance Software, three rebuilds in three languages</span></h3>
+          <p>A set of data processing tools for an enterprise client, delivered as full rebuilds to meet changing requirements: a Python encryption utility with a Pytest, Black, and Flake8 quality pipeline, a C# dataset comparison tool, and a Java log checker for finding errors and anomalies in system logs.</p>
           <div class="tools">Python, Pandas, Polars, C#, Java, Spring Boot, Spring Batch, Jacoco, PostgreSQL, Amazon Redshift</div>
+        </li>
+        <li>
+          <h3>Content asset generator <em class="status">In production</em><span>Client build, longest running freelance client</span></h3>
+          <p>Turns a GPT generated outline into structured buyer avatar documents covering pain points, how to use steps, and email hook angles, then delivers them as styled HTML email. Replacing a polling based PDF service with direct email delivery removed the retry loop and kept the workflow compatible with n8n Cloud.</p>
+          <div class="tools">n8n Cloud, OpenAI, JavaScript, Gmail</div>
         </li>
       </ul>
     </section>
 
-    <section id="automation">
-      <h2>Automation</h2>
-      <p class="intro">End‑to‑end workflows built in n8n over the past nine months, combining LLMs, external APIs, and databases. Two are in production for paying clients. Each screenshot is the actual workflow canvas.</p>
+    <section id="workflows">
+      <h2>Workflow gallery</h2>
+      <p class="intro">The automation side in detail: workflows built in n8n over the past year, combining LLMs, external APIs, and databases. The ones marked in production are running for clients, and each screenshot is the actual workflow canvas.</p>
       <ul class="flows">
 
         <li>
           <figure><div class="shot"><img src="img/ig-scraper.webp" alt="n8n canvas: Tally form intake, three Apify scraping stages for posts, comments and commenter profiles, each writing to Google Sheets, then handing off to a DM scoring engine" width="1302" height="685" loading="lazy"></div></figure>
-          <h3>Instagram lead scraper <span>— in production</span></h3>
-          <p>A form submission kicks off three scraping stages through Apify: the post itself, its comments, and each commenter's profile. Results are normalized, filtered, and appended to Google Sheets, then passed to a scoring engine that decides who gets a DM.</p>
-          <div class="tools">n8n, Apify, Google Sheets, sub‑workflows</div>
+          <h3>Instagram lead scraper <em class="status">In production</em></h3>
+          <p>A form submission kicks off three scraping stages through Apify: the post itself, its comments, and each commenter's profile. A code step joins comments to profiles by username, a filter drops private accounts and spam or emoji only comments, and batching with timed waits keeps the scraper inside Apify's memory limits.</p>
+          <div class="tools">n8n, Apify, Tally, JavaScript, Google Sheets, sub workflows</div>
         </li>
 
         <li>
           <figure><div class="shot"><img src="img/ig-outreach.webp" alt="n8n canvas for the Instagram outreach workflow that scores leads and sends personalized DMs" width="1400" height="519" loading="lazy"></div></figure>
-          <h3>Instagram outreach <span>— in production</span></h3>
-          <p>The second half of the pipeline. Qualifies each lead against the client's criteria, writes a personalized opener with an LLM, and sends the outreach on a schedule so the account stays within safe limits.</p>
-          <div class="tools">n8n, OpenAI, Google Sheets</div>
+          <h3>Instagram outreach <em class="status">In production</em></h3>
+          <p>The second half of the pipeline. An AI qualifier scores each commenter as a likely beginner, weighting the comment itself because bios are often empty. A copywriting agent then writes a soft, curious opener that references the specific comment, with banned words enforced, and outreach goes out on a schedule so the account stays within safe limits.</p>
+          <div class="tools">n8n, GPT-4.1 mini, Gemini, Perplexity, structured output, Google Sheets</div>
         </li>
 
         <li>
           <figure><div class="shot"><img src="img/ghl-leads.webp" alt="n8n canvas: GoHighLevel tag poll, input validation, Apollo enrichment, four parallel scoring workers with fallbacks, a merge and LLM chain, then a Slack approve-or-decline step that updates GoHighLevel" width="1400" height="603" loading="lazy"></div></figure>
-          <h3>Lead qualification with human approval</h3>
-          <p>Polls GoHighLevel for tagged contacts, validates and enriches them through Apollo, then fans out to four scoring workers (ICP fit, intent, engagement, stakeholder role) that each have their own fallback path. Scores merge into a structured LLM verdict; anything above threshold is posted to Slack for a one‑click approve or decline, which writes back to the CRM.</p>
+          <h3>Lead qualification with human approval <em class="status">In production</em></h3>
+          <p>Polls GoHighLevel for tagged contacts, validates and enriches them through Apollo, then fans out to four scoring workers (ICP fit, intent, engagement, stakeholder role) that each have their own fallback path. Scores merge into a structured LLM verdict, and anything above threshold is posted to Slack for a one click approve or decline that writes back to the CRM.</p>
           <div class="tools">n8n, GoHighLevel, Apollo, Claude, Slack, structured output parsing</div>
         </li>
 
         <li>
           <figure><div class="shot"><img src="img/slack-agent.webp" alt="n8n executions view of a Slack agent: message and reaction triggers route to a message agent or a reply agent backed by Claude Sonnet, with approve, expire and reaction tracking steps" width="1400" height="563" loading="lazy"></div></figure>
           <h3>Slack assistant agent</h3>
-          <p>A Slack bot that answers messages and follows threads. Reactions act as controls — approve, expire, flag wrong — and every message is tracked in a database so the agent keeps context across replies. Runs in around 50 ms for routing and a few seconds for LLM turns.</p>
+          <p>A Slack bot that answers messages and follows threads. Reactions act as controls for approving, expiring, or flagging a wrong answer, and every message is tracked in a database so the agent keeps context across replies. Routing runs in around 50 ms and LLM turns take a few seconds.</p>
           <div class="tools">n8n, Slack, Claude Sonnet, database rows for state</div>
         </li>
 
         <li>
           <figure><div class="shot"><img src="img/rag-chatbot.webp" alt="n8n canvas for a retrieval-augmented chatbot: document ingestion into a vector store and a chat trigger that retrieves context before answering" width="1382" height="806" loading="lazy"></div></figure>
           <h3>RAG chatbot</h3>
-          <p>Ingests documents into a vector store, then answers questions from that knowledge base. Retrieves the relevant chunks per query so the model answers from the source material rather than from memory.</p>
+          <p>Ingests documents into a vector store, then answers questions from that knowledge base. It retrieves the relevant chunks per query so the model answers from the source material rather than from memory.</p>
           <div class="tools">n8n, vector database, embeddings, OpenAI</div>
         </li>
 
         <li>
           <figure><div class="shot"><img src="img/airtable-agent.webp" alt="n8n canvas for an AI agent that manages Airtable records through a set of create, update and lookup tools" width="1400" height="603" loading="lazy"></div></figure>
           <h3>Airtable management agent</h3>
-          <p>A conversational agent with Airtable as its toolset. It creates, updates, validates, and syncs records from natural‑language requests, following predefined rules for what can change and when.</p>
+          <p>A conversational agent with Airtable as its toolset. It creates, updates, validates, and syncs records from plain language requests, following predefined rules for what can change and when.</p>
           <div class="tools">n8n AI Agent, Airtable, OpenAI</div>
         </li>
 
@@ -250,8 +279,8 @@
 
         <li>
           <figure><div class="shot"><img src="img/image-gen.webp" alt="n8n canvas for the image generation pipeline, version two" width="1400" height="762" loading="lazy"></div></figure>
-          <h3>Image generation pipeline <span>— v2</span></h3>
-          <p>Second iteration of an on‑demand image pipeline, tuned for consistent style across a batch rather than one‑off results.</p>
+          <h3>Image generation pipeline <span>Version two</span></h3>
+          <p>Second iteration of an on demand image pipeline, tuned for consistent style across a batch rather than one off results.</p>
           <div class="tools">n8n, fal.ai, Nano Banana, Kling, Higgsfield</div>
         </li>
 
@@ -266,7 +295,7 @@
           <figure><div class="shot"><img src="img/transcription.webp" alt="n8n canvas for the transcription database workflow" width="1333" height="622" loading="lazy"></div></figure>
           <h3>Transcription database</h3>
           <p>Transcribes audio and stores the result as structured, searchable records.</p>
-          <div class="tools">n8n, speech‑to‑text, database</div>
+          <div class="tools">n8n, speech to text, database</div>
         </li>
 
       </ul>
@@ -275,29 +304,36 @@
     <section id="experience">
       <h2>Experience</h2>
       <div class="role">
-        <div class="when">2025 — present</div>
+        <div class="when">June 2025 to now</div>
         <div>
-          <h3>Alliance Software <span>— Software Developer</span></h3>
+          <h3>Alliance Software <span>Software Developer</span></h3>
           <ul>
-            <li>Built and maintained data‑processing tools for an enterprise client (WITS) across three full rebuilds in Python, C#, and Java.</li>
-            <li>Developed and tested SAP middleware (SIRIUS), including SAP‑facing APIs and a batching procedure for large record volumes.</li>
-            <li>Currently building mWell, a healthcare platform for Metro Pacific, full‑stack across Laravel, NestJS, React, and TypeScript.</li>
-            <li>Work in small teams using Azure DevOps, Bitbucket, and multi‑repository Git workflows.</li>
+            <li>Building billing, cashiering, and reporting features for the mWell Hospital Information System, plus Playwright test automation for its cashiering flows.</li>
+            <li>Building insurance partner APIs for the mWell patient platform in a NestJS monorepo.</li>
+            <li>Built SAP facing APIs and a batching procedure for large record volumes on SIRIUS, and delivered WITS data tools across three rebuilds in Python, C#, and Java.</li>
+            <li>Work in small teams using Azure DevOps, Bitbucket, Jira, and multi repository Git workflows.</li>
           </ul>
+        </div>
+      </div>
+      <div class="role">
+        <div class="when">2025 to now</div>
+        <div>
+          <h3>Independent practice <span>AI Automation Engineer</span></h3>
+          <p>Automation, AI agent, and infrastructure work for clients in real estate, construction, coaching, and content, delivered as projects and ongoing retainers with written scope before every build.</p>
         </div>
       </div>
       <div class="role">
         <div class="when">Internship</div>
         <div>
-          <h3>Encloudment <span>— Web Developer Intern</span></h3>
-          <p>Three‑month remote internship contributing to front‑end and back‑end features, debugging, and team Git workflows.</p>
+          <h3>Encloudment <span>Web Developer Intern</span></h3>
+          <p>Three month remote internship contributing to front end and back end features, debugging, and team Git workflows.</p>
         </div>
       </div>
       <div class="role">
-        <div class="when">2021 — 2025</div>
+        <div class="when">2021 to 2025</div>
         <div>
-          <h3>University of Cebu <span>— BS Computer Engineering</span></h3>
-          <p>Lapu‑Lapu and Mandaue campus. Academic projects included an RFID credit and user management system (Flask, Arduino, Raspberry Pi), an Android food‑ordering app with Firebase, and an OpenAI‑powered documentation generator.</p>
+          <h3>University of Cebu <span>BS Computer Engineering</span></h3>
+          <p>Lapu-Lapu and Mandaue campus. Academic projects included an RFID credit and user management system (Flask, Arduino, Raspberry Pi), an Android food ordering app with Firebase, and an OpenAI powered documentation generator.</p>
         </div>
       </div>
     </section>
@@ -306,17 +342,19 @@
       <h2>Skills</h2>
       <dl class="skills">
         <dt>Languages</dt>
-        <dd>Python, Java, C#, TypeScript, JavaScript, PHP, HTML/CSS</dd>
+        <dd>TypeScript, JavaScript, Python, Java, PHP, C#, SQL, Bash, HTML/CSS</dd>
         <dt>Frameworks</dt>
-        <dd>Laravel, NestJS, Spring Boot, Spring Batch, Flask, React</dd>
-        <dt>Automation</dt>
-        <dd>n8n, webhook and API integrations, Apify, Supabase, Airtable, GoHighLevel, Slack, Google APIs, Bash</dd>
+        <dd>NestJS, Laravel, Angular, React, Spring Boot, Spring Batch, Flask</dd>
+        <dt>Data and cloud</dt>
+        <dd>PostgreSQL, MySQL, MongoDB, Amazon Redshift, S3, Lambda, Supabase, SQLite, Firebase</dd>
+        <dt>Infrastructure</dt>
+        <dd>Docker, Ubuntu and Linux, SSH, Tailscale, Keycloak, Nx and pnpm monorepos</dd>
         <dt>AI</dt>
-        <dd>OpenAI and Claude integrations, prompt engineering, RAG and vector databases, structured outputs, AI media generation</dd>
-        <dt>Data &amp; cloud</dt>
-        <dd>PostgreSQL, MySQL, Amazon Redshift, S3, Lambda, SQLite, Firebase</dd>
-        <dt>Tooling</dt>
-        <dd>Docker, Keycloak, Git, Azure DevOps, Bitbucket, Postman, Jasper Reports</dd>
+        <dd>Claude and OpenAI integrations, Claude Code and Claude skills, AI agents, RAG and vector databases, structured outputs, Gemini, Perplexity, AI media generation (fal.ai, Kling, Higgsfield, Veo 3, ElevenLabs)</dd>
+        <dt>Automation</dt>
+        <dd>n8n and n8n Cloud, REST APIs and webhooks, Apify, GoHighLevel, Apollo, Airtable, Slack, Google APIs, Tally</dd>
+        <dt>Quality and tooling</dt>
+        <dd>Playwright, JUnit, Pytest, Jacoco, Postman, Insomnia, Git, Azure DevOps, Bitbucket, Jira, Jasper Reports</dd>
         <dt>Hardware</dt>
         <dd>Raspberry Pi, Arduino, RFID integration</dd>
       </dl>
@@ -324,7 +362,7 @@
 
     <section id="contact">
       <h2>Contact</h2>
-      <p class="intro">Open to roles in AI automation, workflow engineering, and full‑stack development — remote or in Cebu. The fastest way to reach me is email.</p>
+      <p class="intro">Open to software engineering and AI automation roles, remote or in Cebu, and to automation projects and retainers. Email is the fastest way to reach me.</p>
       <div class="links">
         <a href="mailto:daxlax5@gmail.com">daxlax5@gmail.com</a>
         <a href="https://www.linkedin.com/in/axlcabunoc" rel="me noopener" target="_blank">linkedin.com/in/axlcabunoc</a>
