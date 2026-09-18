@@ -9,7 +9,11 @@ const site = 'https://axl-portfolio-site.vercel.app';
 export default defineConfig({
   site,
   output: 'static',
-  adapter: vercel(),
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    },
+  }),
   // No trailing slash, so /workflows/instagram-lead-scraper matches the
   // cleanUrls behaviour of the original static deployment.
   trailingSlash: 'never',
