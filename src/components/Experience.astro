@@ -1,0 +1,24 @@
+---
+import { experience } from '../data/experience';
+---
+
+{
+  experience.map((r) => (
+    <div class="role">
+      <div class="when">{r.when}</div>
+      <div>
+        <h3>
+          {r.org} <span>{r.role}</span>
+        </h3>
+        {r.bullets && (
+          <ul>
+            {r.bullets.map((b) => (
+              <li>{b}</li>
+            ))}
+          </ul>
+        )}
+        {r.summary && <p>{r.summary}</p>}
+      </div>
+    </div>
+  ))
+}

@@ -1,3 +1,58 @@
 ---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Layout from '../components/Layout.astro';
+import Section from '../components/Section.astro';
+import WorkItem from '../components/WorkItem.astro';
+import WorkflowItem from '../components/WorkflowItem.astro';
+import Experience from '../components/Experience.astro';
+import Skills from '../components/Skills.astro';
+import { site } from '../data/site';
+
+type Ordered = CollectionEntry<'work'> | CollectionEntry<'automation'>;
+const byOrder = (a: Ordered, b: Ordered) => a.data.order - b.data.order;
+
+const work = (await getCollection('work')).sort(byOrder);
+const automation = (await getCollection('automation')).sort(byOrder);
+
+// "linkedin.com/in/axlcabunoc" and "github.com/daxlax5", as shown in the contact section.
+const bare = (url: string) => url.replace(/^https?:\/\/(www\.)?/, '');
 ---
-<html lang="en"><head><meta charset="utf-8" /><title>Axl Cabunoc</title></head><body></body></html>
+
+<Layout>
+  <h1>{site.tagline}</h1>
+  {site.bio.map((paragraph) => <p class="lede">{paragraph}</p>)}
+  <div class="links">
+    <a href={`mailto:${site.email}`}>{site.email}</a>
+    <a href={site.linkedin} rel="me noopener" target="_blank">LinkedIn</a>
+    <a href={site.github} rel="me noopener" target="_blank">GitHub</a>
+    <a href={site.resume} target="_blank">Resume</a>
+  </div>
+
+  <Section id="work" title="Selected work" intro={site.intro.work}>
+    <ul class="work">
+      {work.map((entry) => <WorkItem entry={entry} />)}
+    </ul>
+  </Section>
+
+  <Section id="workflows" title="Workflow gallery" intro={site.intro.workflows}>
+    <ul class="flows">
+      {automation.map((entry) => <WorkflowItem entry={entry} />)}
+    </ul>
+  </Section>
+
+  <Section id="experience" title="Experience">
+    <Experience />
+  </Section>
+
+  <Section id="skills" title="Skills">
+    <Skills />
+  </Section>
+
+  <Section id="contact" title="Contact" intro={site.intro.contact}>
+    <div class="links">
+      <a href={`mailto:${site.email}`}>{site.email}</a>
+      <a href={site.linkedin} rel="me noopener" target="_blank">{bare(site.linkedin)}</a>
+      <a href={site.github} rel="me noopener" target="_blank">{bare(site.github)}</a>
+    </div>
+  </Section>
+</Layout>

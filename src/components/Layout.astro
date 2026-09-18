@@ -1,0 +1,82 @@
+---
+import '@fontsource-variable/instrument-sans';
+import '@fontsource-variable/instrument-sans/wght-italic.css';
+import fontUrl from '@fontsource-variable/instrument-sans/files/instrument-sans-latin-wght-normal.woff2?url';
+import '../styles/global.css';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import { site } from '../data/site';
+
+export interface OgImage {
+  url: string;
+  width: number;
+  height: number;
+  alt: string;
+}
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogDescription?: string;
+  ogImage?: OgImage;
+}
+
+const {
+  title = site.title,
+  description = site.description,
+  ogDescription = site.ogDescription,
+  ogImage = {
+    url: new URL('og.png', Astro.site).href,
+    width: 1200,
+    height: 630,
+    alt: `${site.name}. ${site.tagline}`,
+  },
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name,
+  url: Astro.site?.href,
+  email: `mailto:${site.email}`,
+  jobTitle: site.jobTitle,
+  worksFor: { '@type': 'Organization', name: site.employer },
+  address: { '@type': 'PostalAddress', addressLocality: 'Cebu City', addressCountry: 'PH' },
+  sameAs: [site.linkedin, site.github],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:image" content={ogImage.url} />
+    <meta property="og:image:width" content={String(ogImage.width)} />
+    <meta property="og:image:height" content={String(ogImage.height)} />
+    <meta property="og:image:alt" content={ogImage.alt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preload" href={fontUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(person)} />
+  </head>
+  <body>
+    <div class="page">
+      <Header />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>

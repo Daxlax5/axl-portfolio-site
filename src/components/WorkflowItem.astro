@@ -1,0 +1,31 @@
+---
+import { Image } from 'astro:assets';
+import { render, type CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'automation'>;
+}
+
+const { entry } = Astro.props;
+const { title, subtitle, status, tools, image, alt } = entry.data;
+const { Content } = await render(entry);
+const href = `/workflows/${entry.id}`;
+
+// Rendered width of the screenshot: the 680px column, widened by 120px each
+// side at >= 1100px, and full width minus the page gutters below that.
+const sizes =
+  '(min-width: 1100px) 920px, (min-width: 728px) 680px, (min-width: 601px) calc(100vw - 48px), calc(100vw - 40px)';
+---
+
+<li>
+  <figure>
+    <div class="shot">
+      <Image src={image} alt={alt} widths={[680, 920, 1400]} sizes={sizes} loading="lazy" />
+    </div>
+  </figure>
+  <h3>
+    <a href={href}>{title}</a>{status && <>{' '}<em class="status">{status}</em></>}{subtitle && <>{' '}<span>{subtitle}</span></>}
+  </h3>
+  <Content />
+  <div class="tools">{tools.join(', ')}</div>
+</li>

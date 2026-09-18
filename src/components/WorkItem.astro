@@ -1,0 +1,17 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'work'>;
+}
+
+const { entry } = Astro.props;
+const { title, subtitle, status, tools } = entry.data;
+const { Content } = await render(entry);
+---
+
+<li>
+  <h3>{title} {status && <em class="status">{status}</em>}<span>{subtitle}</span></h3>
+  <Content />
+  <div class="tools">{tools.join(', ')}</div>
+</li>

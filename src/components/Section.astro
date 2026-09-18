@@ -1,0 +1,16 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  /** Optional muted paragraph under the heading. */
+  intro?: string;
+}
+
+const { id, title, intro } = Astro.props;
+---
+
+<section id={id}>
+  <h2>{title}</h2>
+  {intro && <p class="intro">{intro}</p>}
+  <slot />
+</section>
