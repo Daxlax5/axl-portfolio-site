@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Layout from '../../components/Layout.astro';
+import { site } from '../../data/site';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('automation');
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+interface Props {
+  entry: CollectionEntry<'automation'>;
+}
+
+const { entry } = Astro.props;
+const { title, subtitle, status, tools, image, alt } = entry.data;
+const { Content } = await render(entry);
+
+// Meta description: the description paragraph, cut at a sentence boundary if it runs long.
+const body = (entry.body ?? '').replace(/\s+/g, ' ').trim();
+const description =
+  body.length <= 160 ? body : body.slice(0, 160).replace(/[^.]*$/, '').trim() || body.slice(0, 157).trim() + '...';
+
+// Same sizes as the gallery: 920px wide-bleed at >= 1100px, otherwise the column width.
+const sizes =
+  '(min-width: 1100px) 920px, (min-width: 728px) 680px, (min-width: 601px) calc(100vw - 48px), calc(100vw - 40px)';
+
+const ogImage = {
+  url: new URL(image.src, Astro.site).href,
+  width: image.width,
+  height: image.height,
+  alt,
+};
+---
+
+<Layout title={`${title} | ${site.name}`} description={description} ogDescription={description} ogImage={ogImage}>
+  <article class="flow">
+    <h1>
+      {title}{status && <>{' '}<em class="status">{status}</em></>}{subtitle && <span>{subtitle}</span>}
+    </h1>
+    <figure>
+      <div class="shot">
+        <Image src={image} alt={alt} widths={[680, 920, 1400]} sizes={sizes} loading="eager" fetchpriority="high" />
+      </div>
+    </figure>
+    <Content />
+    <div class="tools">{tools.join(', ')}</div>
+    <div class="links">
+      <a href="/#workflows">Back to workflows</a>
+    </div>
+  </article>
+</Layout>
