@@ -1,8 +1,18 @@
+/* Fallback face with Instrument Sans metrics applied to Arial, so text does not reflow when the web font arrives. */
+@font-face {
+  font-family: "Instrument Sans Fallback";
+  src: local("Arial");
+  size-adjust: 102.7365%;
+  ascent-override: 94.4163%;
+  descent-override: 24.3341%;
+  line-gap-override: 0%;
+}
+
 :root {
   --bg: #ffffff;
   --ink: #1f2a33;
   --muted: #5f6b76;
-  --faint: #9aa4ad;
+  --faint: #6b7680; /* was #9aa4ad (2.5:1 on white); this is the dark-mode faint value, 4.6:1, for WCAG AA */
   --line: #e6e9ec;
   --link: #1d4ed8;
   --link-hover: #1e3a8a;
@@ -39,7 +49,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: "Instrument Sans Variable", "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Instrument Sans Variable", "Instrument Sans", "Instrument Sans Fallback", "Helvetica Neue", Arial, sans-serif;
   font-size: 17px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
